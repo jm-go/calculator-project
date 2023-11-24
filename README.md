@@ -4,7 +4,7 @@
 **Welcome to my Web Calculator App**. This is a Nology course project designed to showcase a simple yet functional calculator built using modern web technologies. The calculator features a clean, user-friendly interface and is capable of performing basic arithmetic operations.
 
 ## **Features**
-- **Basic Arithmetic Operations**: Perform addition, subtraction, multiplication, and division.
+- **Basic Arithmetic Operations**: Perform addition (+), subtraction (-), multiplication (x), division (÷), negate (±), and calculate percentages (%).
 - **Clear and Equal Functions**: For ease of calculation.
 - **Responsive Design**: Optimal viewing on various devices.
 
@@ -42,5 +42,4 @@ For any additional questions or comments, feel free to reach out to me directly 
 
 ## **Acknowledgements**
 Special thanks and acknowledgements go to the creators of the icons used in this project.
-
 
