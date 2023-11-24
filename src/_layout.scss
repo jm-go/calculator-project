@@ -1,21 +1,13 @@
-// comments go here
-
-.header {
-    display: flex;
-    justify-content: center;
-}
-
-.cat-img {
-    display: flex;
-    justify-content: center;
-}
+@use "./variables" as *;
 
 .calculator {
+    background-color: $color-primary;
+    width: 16rem; 
+    height: auto;
     display: grid;
+    margin: 1rem 1rem;
     grid-template-rows: repeat(7, 1fr);
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem; //not sue if needed
-    margin: 0 1rem; // not sure if needed
     grid-template-areas: "history history history history"
         "answer answer answer answer"
         "delete negate percent divide"
@@ -23,6 +15,9 @@
         "four five six minus"
         "one two three plus"
         "num_zero dec equals equals";
+    border: 1px solid $color-secondary;
+    border-radius: 1rem;
+    box-shadow: -3px 5px 12px rgba(0,0,0,0.3);
 
     &__history {
         grid-area: history;
