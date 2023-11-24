@@ -1,3 +1,38 @@
 @use "./variables" as *;
 @use "./layout";
 @use "./components";
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: $color-green;
+    font-family: $font-body;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    html {
+        font-size: 22px;
+    }
+}
+
