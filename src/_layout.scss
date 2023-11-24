@@ -1,0 +1,131 @@
+// comments go here
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.cat-img {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; //not sue if needed
+    margin: 0 1rem; // not sure if needed
+    grid-template-areas: "history history history history"
+        "answer answer answer answer"
+        "delete negate percent divide"
+        "seven eight nine num_times"
+        "four five six minus"
+        "one two three plus"
+        "num_zero dec equals equals";
+
+    &__history {
+        grid-area: history;
+        align-self: center;
+    }
+
+    &__answer {
+        grid-area: answer;
+        align-self: center;
+    }
+
+    &__button-clear {
+        grid-area: delete;
+        align-self: center;
+    }
+
+    &__button-negate {
+        grid-area: negate;
+        align-self: center;
+    }
+
+    &__button-percent {
+        grid-area: percent;
+        align-self: center;
+    }
+
+    &__button-divide {
+        grid-area: divide;
+        align-self: center;
+    }
+
+    &__button-seven {
+        grid-area: seven;
+        align-self: center;
+    }
+
+    &__button-eight {
+        grid-area: eight;
+        align-self: center;
+    }
+
+    &__button-nine {
+        grid-area: nine;
+        align-self: center;
+    }
+
+    &__button-multiply {
+        grid-area: num_times;
+        align-self: center;
+    }
+
+    &__button-four {
+        grid-area: four;
+        align-self: center;
+    }
+
+    &__button-five {
+        grid-area: five;
+        align-self: center;
+    }
+
+    &__button-six {
+        grid-area: six;
+        align-self: center;
+    }
+
+    &__button-minus {
+        grid-area: minus;
+        align-self: center;
+    }
+
+    &__button-one {
+        grid-area: one;
+        align-self: center;
+    }
+
+    &__button-two {
+        grid-area: two;
+        align-self: center;
+    }
+
+    &__button-three {
+        grid-area: three;
+        align-self: center;
+    }
+
+    &__button-plus {
+        grid-area: plus;
+        align-self: center;
+    }
+
+    &__button-zero {
+        grid-area: num_zero;
+        align-self: center;
+    }
+
+    &__button-dec {
+        grid-area: dec;
+        align-self: center;
+    }
+
+    &__button-equals {
+        grid-area: equals;
+        align-self: center;
+    }
+}
