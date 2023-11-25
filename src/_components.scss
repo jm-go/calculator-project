@@ -7,17 +7,17 @@
     flex-direction: column;
 
     &__text {
-        font-family: $font-headers;
+        font-family: $font-headers-tertiary;
         font-size: 2rem;
-        //color: rgb(239, 205, 255);
-        color: white;
-        font-weight: 600;
+        color: $color-text;
+        //font-weight: 600;
     }
 
     &__cat {
         margin-top: 2rem;
         max-width: 7rem;
         max-height: auto;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -30,6 +30,23 @@ main {
 .calculator {
     margin-bottom: 2rem;
 
+    &__history {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+        font-size: 0.9rem;
+        color: $color-text;
+        opacity: 80%;
+    }
+
+    &__answer {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        color: $color-text;
+    }
+    
     &__button {
         width: 3.2rem;
         height: 3.2rem;
@@ -45,8 +62,7 @@ main {
         align-items: center; 
 
         &:hover {
-            //background-color: #e0e0e0;
-            background-color: $color-lavender;
+            background-color: $color-primary;
         }
 
         &--equal {
@@ -58,31 +74,31 @@ main {
     }
 
     &__button-clear {
-        background-color: $color-lavender;
+        background-color: $color-green;
     }
 
     &__button-negate {
-        background-color: $color-cherub;
+        background-color: $color-lavender;
     }
 
     &__button-percent {
-        background-color: $color-primary;
+        background-color: $color-lavender;
     }
 
     &__button-divide {
-        background-color: $color-primary;
+        background-color: $color-lavender;
     }
 
     &__button-multiply {
-        background-color: $color-primary;
+        background-color: $color-lavender;
     }
 
     &__button-minus {
-        background-color: $color-primary;
+        background-color: $color-lavender;
     }
 
     &__button-plus {
-        background-color: $color-primary;
+        background-color: $color-lavender;
     }
 
     &__img {
