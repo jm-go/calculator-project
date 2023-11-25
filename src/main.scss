@@ -5,10 +5,15 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: $color-green;
     font-family: $font-body;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+body {
+    background: linear-gradient(to bottom, rgb(245, 214, 243), #b9b0f5);
+    height: 100vh;
+    width: 100vw; 
 }
 
 html {
