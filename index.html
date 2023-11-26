@@ -7,31 +7,148 @@
     <title>Calculator</title>
   </head>
   <body>
+    <section class="header">
+      <img
+        class="header__cat"
+        src="./src/assets/calculator.png"
+        alt="Cat with calculator"
+      />
+      <header class="header__text">Let's Calculate!</header>
+    </section>
     <main>
-      <header class="header">Let's Calculate!</header>
-      <img src="./src/assets/calculator.png" alt="Cat with calculator">
       <section class="calculator">
-        <output class="calculator__history"></output>
-        <output class="calculator__answer"></output>
-        <section class="calculator__buttons">
-          <button type="button" class="calculator__button-clear">C</button>
-          <button type="button" class="calculator__button-divide"><img src="./src/assets/divide.svg" alt="Division"></button>
-          <button type="button" class="calculator__button-seven">7</button>
-          <button type="button" class="calculator__button-eight">8</button>
-          <button type="button" class="calculator__button-nine">9</button>
-          <button type="button" class="calculator__button-multiply"><img src="./src/assets/x.svg" alt="Multiplication"></button>
-          <button type="button" class="calculator__button-four">4</button>
-          <button type="button" class="calculator__button-five">5</button>
-          <button type="button" class="calculator__button-six">6</button>
-          <button type="button" class="calculator__button-minus"><img src="./src/assets/minus.svg" alt="Subtraction"></button>
-          <button type="button" class="calculator__button-one">1</button>
-          <button type="button" class="calculator__button-two">2</button>
-          <button type="button" class="calculator__button-three">3</button>
-          <button type="button" class="calculator__button-plus"><img src="./src/assets/plus.svg" alt="Addition"></button>
-          <button type="button" class="calculator__button-zero">0</button>
-          <button type="button" class="calculator__button-dot">.</button>
-          <button type="button" class="calculator__button-equals"><img src="./src/assets/equal.svg" alt="Equals"></button>
-        </section>
+        <output class="calculator__history">sample</output>
+        <output class="calculator__answer">sample</output>
+        <button
+          type="button"
+          class="calculator__button calculator__button-clear"
+        >
+          C
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-negate"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/plus-minus.svg"
+            alt="Plus-minus"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-percent"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/percent.svg"
+            alt="Percentage"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-divide"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/divide.svg"
+            alt="Division"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-seven"
+        >
+          7
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-eight"
+        >
+          8
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-nine"
+        >
+          9
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-multiply"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/x.svg"
+            alt="Multiplication"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-four"
+        >
+          4
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-five"
+        >
+          5
+        </button>
+        <button type="button" class="calculator__button calculator__button-six">
+          6
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-minus"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/minus.svg"
+            alt="Subtraction"
+          />
+        </button>
+        <button type="button" class="calculator__button calculator__button-one">
+          1
+        </button>
+        <button type="button" class="calculator__button calculator__button-two">
+          2
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-three"
+        >
+          3
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-plus"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/plus.svg"
+            alt="Addition"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-zero"
+        >
+          0
+        </button>
+        <button type="button" class="calculator__button calculator__button-dec">
+          .
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-equals calculator__button--equal"
+        >
+          <img
+            class="calculator__img"
+            src="./src/assets/equal.svg"
+            alt="Equals"
+          />
+        </button>
       </section>
     </main>
     <script type="module" src="/src/main.ts"></script>
