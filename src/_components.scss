@@ -6,16 +6,20 @@
     align-items: center;
     flex-direction: column;
 
+
     &__text {
         font-family: $font-headers-tertiary;
         font-size: 2rem;
         color: $color-text;
-        //font-weight: 600;
+
+        &--letterT {
+            color: $color-dark-violet;
+        }
     }
 
     &__cat {
-        margin-top: 2rem;
-        max-width: 7rem;
+        margin-top: 3rem;
+        max-width: 6rem;
         max-height: auto;
         margin-bottom: 0.5rem;
     }
@@ -45,6 +49,11 @@ main {
         margin-bottom: 1rem;
         font-size: 1.25rem;
         color: $color-text;
+        font-weight: 600;
+        border-bottom: 2px solid $color-lavender;
+        padding-bottom: 0.25rem;
+        border-bottom-style: dotted;
+        border-bottom-width: 0.2rem;
     }
     
     &__button {
@@ -62,19 +71,19 @@ main {
         align-items: center; 
 
         &:hover {
-            background-color: $color-primary;
+            background-color: $color-lily;
         }
 
         &--equal {
             width: 6.5rem;
             height: 3rem;
             border-radius: 1rem;
-            background-color: $color-green;
+            background-color: $color-violet;
         }
     }
 
     &__button-clear {
-        background-color: $color-green;
+        background-color: $color-violet;
     }
 
     &__button-negate {
