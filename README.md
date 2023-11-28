@@ -41,5 +41,5 @@ This project is open-source.
 For any additional questions or comments, feel free to reach out to me directly through the contact information provided on the website.
 
 ## **Acknowledgements**
-Special thanks and acknowledgements go to the creators of the icons used in this project.
+Special thanks and acknowledgements go to the creator of the icon used in this project.
 
