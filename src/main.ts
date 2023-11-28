@@ -7,15 +7,17 @@ const calculatorButton = document.querySelectorAll<HTMLButtonElement>(
 const outputAnswer = document.querySelector<HTMLOutputElement>(
   ".calculator__answer"
 );
+const outputHistory = document.querySelector<HTMLOutputElement>(
+  ".calculator__history"
+);
 
 // Add error handling
-if (!calculatorButton || !outputAnswer) {
+if (!calculatorButton || !outputAnswer || !outputHistory) {
   throw new Error("Issue with Selector.");
 }
 
 // Add global variables
-let value1: null | number = null;
-let value2: null | number = null;
+let value: null | number = null;
 let operator: null | string = null;
 let actionTracker: null | undefined | string = null;
 
@@ -85,14 +87,16 @@ const performAction = (buttonClass: string) => {
   switch (buttonClass) {
     case "clear":
       outputAnswer.textContent = "";
+      outputHistory.textContent = "";
       break;
     case "negate":
       outputAnswer.textContent = (parseToNumber(outputAnswer) * -1).toString();
       break;
     case "percent":
-      outputAnswer.textContent = calculatePercent(
-        parseToNumber(outputAnswer)
-      ).toString();
+      let result = calculatePercent(parseToNumber(outputAnswer));
+      if (result) {
+        outputAnswer.textContent = result.toString();
+      }
       break;
     case "equals":
       break;
@@ -150,21 +154,21 @@ const handleClickButton = (event: Event) => {
         checkDecimal(outputAnswer);
       }
     } else if (buttonType === "operator") {
-      // operator = getOperator(buttonClass);
-      // if (value1) {
-      //   value1 = parseToNumber(outputAnswer);
-      //   console.log(operator);
-      //   console.log(value1);
-      //   let result = calculate(value1, parseToNumber(outputAnswer), operator);
-      //   if (result) {
-      //     outputAnswer.textContent = result.toString();
-      //   }
-      // } else {
-      //   value1 = parseToNumber(outputAnswer);
-      // } 
+      if (operator) {
+        let currentTextContent = parseToNumber(outputAnswer);
+        let result = calculate(value, currentTextContent, operator);
+        outputHistory.textContent = `${value}${operator}${currentTextContent}`; //to do - set limit of characters
+        value = result;
+        if (value) {
+          outputAnswer.textContent = value.toString();
+        }
+      } else {
+        value = parseToNumber(outputAnswer);
+      }
+      operator = getOperator(buttonClass);
     } else if (buttonType === "action") {
       performAction(buttonClass);
-    } 
+    }
     actionTracker = buttonType;
   }
 };
@@ -258,6 +262,6 @@ const calculate = (
     result = multiplyNumbers(number1, number2);
     return result;
   } else {
-    return "Invalid operator.";
+    return null;
   }
 };
