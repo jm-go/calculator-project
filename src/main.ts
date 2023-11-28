@@ -13,6 +13,12 @@ if (!calculatorButton || !outputAnswer) {
   throw new Error("Issue with Selector.");
 }
 
+// Add global variables
+let value1: null | number = null;
+let value2: null | number = null;
+let operator: null | string = null;
+let actionTracker: null | undefined | string = null;
+
 // Add switch function for numeric buttons
 const getNumericValue = (buttonClass: string) => {
   buttonClass = buttonClass.replace(
@@ -45,15 +51,13 @@ const getNumericValue = (buttonClass: string) => {
   }
 };
 
-const getOperatorValue = (buttonClass: string) => {
+// Add switch function for operation buttons
+const getOperator = (buttonClass: string) => {
   buttonClass = buttonClass.replace(
     "calculator__button calculator__button-",
     ""
   );
   switch (buttonClass) {
-    case "clear":
-      clearOutput();
-      break;
     case "plus":
       return "+";
     case "minus":
@@ -62,16 +66,38 @@ const getOperatorValue = (buttonClass: string) => {
       return "x";
     case "divide":
       return "/";
-    case "negate":
-      return "+/-";
-    case "percent":
-      return "%";
-    case "dec":
-      return ".";
-    case "equals":
-      return "=";
     default:
-      throw new Error("Invalid operation button class.");
+      throw new Error("Invalid button class");
+  }
+};
+
+// Change string output to number value
+const parseToNumber = (output: HTMLOutputElement): number => {
+  let stringAsNumber = checkTextContent(output);
+  return Number(stringAsNumber);
+};
+
+const performAction = (buttonClass: string) => {
+  buttonClass = buttonClass.replace(
+    "calculator__button calculator__button-",
+    ""
+  );
+  switch (buttonClass) {
+    case "clear":
+      outputAnswer.textContent = "";
+      break;
+    case "negate":
+      outputAnswer.textContent = (parseToNumber(outputAnswer) * -1).toString();
+      break;
+    case "percent":
+      outputAnswer.textContent = calculatePercent(
+        parseToNumber(outputAnswer)
+      ).toString();
+      break;
+    case "equals":
+      break;
+    default:
+      throw new Error("Invalid button class.");
   }
 };
 
@@ -85,28 +111,24 @@ const checkOutputLength = (output: HTMLOutputElement) => {
   return false;
 };
 
-const checkTextContent = (output: HTMLOutputElement): string =>  {
-  if (output.hasOwnProperty("textContent")) {
-    if (output.textContent !== null) {
-      return output.textContent.toString();
-    }
-    return "";
-  }
-  return "";
-}
+// Return output.textContent as a String or empty String
+const checkTextContent = (output: HTMLOutputElement): string => {
+  return output.textContent || "";
+};
 
+// Check if decimal point already exists
 const checkDecimal = (output: HTMLOutputElement) => {
   const text = checkTextContent(output);
-  if (!text.includes(".")) {
-    output.textContent += ".";
-  } else if (!text) {
+  if (text.length === 0) {
     output.textContent += "0.";
+  } else if (!text.includes(".")) {
+    output.textContent += ".";
   }
-}
+};
 
 // Add handler for numeric buttons and operators
 const handleClickButton = (event: Event) => {
-  const target = event.target as HTMLButtonElement;
+  const target = event.currentTarget as HTMLButtonElement;
 
   // Ensure the event target is a button element
   if (target instanceof HTMLButtonElement) {
@@ -115,30 +137,44 @@ const handleClickButton = (event: Event) => {
     const buttonType = target.dataset.type;
 
     // Only proceed if the output length check passes
-    if (checkOutputLength(outputAnswer)) {
-      if (buttonType === "number") {
+    if (buttonType === "number") {
+      if (actionTracker === "operator") {
+        outputAnswer.textContent = "";
+      }
+      if (checkOutputLength(outputAnswer)) {
         const numericValue = getNumericValue(buttonClass);
         outputAnswer.textContent += numericValue.toString();
-      } else if (buttonType === "decimal") {
-        checkDecimal(outputAnswer);
-      } else if (buttonType === "operator") {
-        console.log("to do")
-      } else if (buttonType === "action") {
-        // const specialAction = (buttonClass);
-        console.log("to do");
       }
-    }
+    } else if (buttonType === "decimal") {
+      if (checkOutputLength(outputAnswer)) {
+        checkDecimal(outputAnswer);
+      }
+    } else if (buttonType === "operator") {
+      // operator = getOperator(buttonClass);
+      // if (value1) {
+      //   value1 = parseToNumber(outputAnswer);
+      //   console.log(operator);
+      //   console.log(value1);
+      //   let result = calculate(value1, parseToNumber(outputAnswer), operator);
+      //   if (result) {
+      //     outputAnswer.textContent = result.toString();
+      //   }
+      // } else {
+      //   value1 = parseToNumber(outputAnswer);
+      // } 
+    } else if (buttonType === "action") {
+      performAction(buttonClass);
+    } 
+    actionTracker = buttonType;
   }
 };
 
-//outputAnswer.textContent = event.target as HTMLButtonElement;
-
-// Add event listener for each numeric button
+//Add event listener for each numeric button
 calculatorButton.forEach((button) => {
   button.addEventListener("click", handleClickButton);
 });
 
-const addNumbers = (number1: number, number2: number) => {
+const addNumbers = (number1: number | null, number2: number | null) => {
   if (
     number1 !== null &&
     number1 !== undefined &&
@@ -152,7 +188,7 @@ const addNumbers = (number1: number, number2: number) => {
   }
 };
 
-const subtractNumbers = (number1: number, number2: number) => {
+const subtractNumbers = (number1: number | null, number2: number | null) => {
   if (
     number1 !== null &&
     number1 !== undefined &&
@@ -166,7 +202,7 @@ const subtractNumbers = (number1: number, number2: number) => {
   }
 };
 
-const multiplyNumbers = (number1: number, number2: number) => {
+const multiplyNumbers = (number1: number | null, number2: number | null) => {
   if (
     number1 !== null &&
     number1 !== undefined &&
@@ -180,7 +216,7 @@ const multiplyNumbers = (number1: number, number2: number) => {
   }
 };
 
-const divideNumbers = (number1: number, number2: number) => {
+const divideNumbers = (number1: number | null, number2: number | null) => {
   if (
     number1 !== null &&
     number1 !== undefined &&
@@ -194,15 +230,34 @@ const divideNumbers = (number1: number, number2: number) => {
   }
 };
 
-const calculatePercent = (number: number) => {
+const calculatePercent = (number: number | null) => {
   if (number !== null && number !== undefined) {
     return number / 100;
   } else {
     alert("Please input valid values.");
-    return null;
+    return number;
   }
 };
 
-const clearOutput = () => {
-  outputAnswer.textContent = "";
+const calculate = (
+  number1: number | null,
+  number2: number | null,
+  operator: string
+) => {
+  let result: number | null = 0;
+  if (operator === "+") {
+    result = addNumbers(number1, number2);
+    return result;
+  } else if (operator === "-") {
+    result = subtractNumbers(number1, number2);
+    return result;
+  } else if (operator === "/") {
+    result = divideNumbers(number1, number2);
+    return result;
+  } else if (operator === "x") {
+    result = multiplyNumbers(number1, number2);
+    return result;
+  } else {
+    return "Invalid operator.";
+  }
 };
