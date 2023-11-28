@@ -62,33 +62,35 @@ const getOperationValue = (buttonClass: string) => {
       return "+/-";
     case "percent":
       return "%";
+    case "equals":
+      return "=";
     default:
       throw new Error("Invalid operation button class.");
   }
 };
 
+const checkOutputLength = (output: HTMLOutputElement) => {
+  if (output.textContent && output.textContent.length < 18) {
+    return true;
+  } else if (!output.textContent) {
+    return true;
+  }
+  return false;
+};
+
 // Add handler for numeric buttons and operators
 const handleClickButton = (event: Event) => {
-  const target = event.target;
+  const target = event.target as HTMLButtonElement;
 
   // Ensure the event target is a button element
   if (target instanceof HTMLButtonElement) {
-    // Get the class of the button
+    // Get the class and type of the button
     const buttonClass = target.className;
-    // Add error handling. If "try" block will execute the code and check if any exception is thrown
-    try {
-      // Retrieve the numeric value based on the button class
-      const numericValue = getNumericValue(buttonClass);
-      // Add the numeric value to the outputAnswer's content
-      if (outputAnswer) {
+    const buttonType = target.dataset.type;
+    if (buttonType === "number") {
+      if (checkOutputLength(outputAnswer)) {
+        const numericValue = getNumericValue(buttonClass);
         outputAnswer.textContent += numericValue.toString();
-      }
-      //If exception appears, execute "catch" block
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error(error.message);
-      } else {
-        console.error("An unknown error occurred.");
       }
     }
   }
