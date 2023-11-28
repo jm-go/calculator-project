@@ -165,7 +165,7 @@ const handleClickButton = (event: Event) => {
         let result = calculate(value, currentTextContent, operator);
         outputHistory.textContent = `${value}${operator}${currentTextContent}`; //to do - set limit of characters
         value = result;
-        if (value) {
+        if (value !== null) {
           outputAnswer.textContent = value.toString();
         }
       } else {
