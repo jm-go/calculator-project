@@ -88,6 +88,9 @@ const performAction = (buttonClass: string) => {
     case "clear":
       outputAnswer.textContent = "";
       outputHistory.textContent = "";
+      value = null;
+      operator = null;
+      actionTracker = null;
       break;
     case "negate":
       outputAnswer.textContent = (parseToNumber(outputAnswer) * -1).toString();
@@ -98,7 +101,7 @@ const performAction = (buttonClass: string) => {
         outputAnswer.textContent = result.toString();
       }
       break;
-    case "equals":
+    case "equals": //TO DO
       break;
     default:
       throw new Error("Invalid button class.");
@@ -154,6 +157,9 @@ const handleClickButton = (event: Event) => {
         checkDecimal(outputAnswer);
       }
     } else if (buttonType === "operator") {
+      if (actionTracker === "operator") {
+        operator = null;
+      }
       if (operator) {
         let currentTextContent = parseToNumber(outputAnswer);
         let result = calculate(value, currentTextContent, operator);
