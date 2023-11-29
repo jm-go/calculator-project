@@ -94,7 +94,7 @@ const performAction = (buttonClass: string) => {
       actionTracker = null;
       break;
     case "negate":
-      const negatedOutput = (parseToNumber(outputAnswer) * -1);
+      const negatedOutput = parseToNumber(outputAnswer) * -1;
       outputAnswer.textContent = negatedOutput.toString();
       value = negatedOutput;
       break;
@@ -105,7 +105,17 @@ const performAction = (buttonClass: string) => {
         value = result;
       }
       break;
-    case "equals": //TO DO
+    case "equals calculator__button--equal":
+      if (typeof operator === "string" && value !== null) {
+        let currentTextContent = parseToNumber(outputAnswer);
+        let result = calculate(value, currentTextContent, operator);
+        if (result !== null) {
+          outputAnswer.textContent = result.toString();
+          outputHistory.textContent += `${value}${operator}${currentTextContent}`;
+          value = null;
+          operator = null;
+        } // TO DO - add functionality for scenario when user clicks equals a few times
+      }
       break;
     default:
       throw new Error("Invalid button class.");
@@ -160,8 +170,7 @@ const handleClickButton = (event: Event) => {
     } else if (buttonType === "decimal") {
       if (checkOutputLength(outputAnswer)) {
         checkDecimal(outputAnswer);
-      } 
-      
+      }
     } else if (buttonType === "operator") {
       if (actionTracker === "operator") {
         operator = null;
@@ -182,7 +191,6 @@ const handleClickButton = (event: Event) => {
     } else if (buttonType === "action") {
       performAction(buttonClass);
     }
-    
   }
 };
 
@@ -251,7 +259,7 @@ const calculatePercent = (number: number | null) => {
   if (number !== null && number !== undefined) {
     return number / 100;
   } else {
-    alert("Please input valid values.");
+    alert("Invalid input.");
     return number;
   }
 };
