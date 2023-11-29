@@ -6,13 +6,12 @@
     align-items: center;
     flex-direction: column;
 
-
     &__text {
         font-family: $font-headers-tertiary;
         font-size: 2rem;
         color: $color-text;
 
-        &--letterT {
+        &--cat {
             color: $color-dark-violet;
         }
     }
