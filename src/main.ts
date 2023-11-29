@@ -79,6 +79,7 @@ const parseToNumber = (output: HTMLOutputElement): number => {
   return Number(stringAsNumber);
 };
 
+// Add switch statement for special action buttons
 const performAction = (buttonClass: string) => {
   buttonClass = buttonClass.replace(
     "calculator__button calculator__button-",
@@ -93,12 +94,15 @@ const performAction = (buttonClass: string) => {
       actionTracker = null;
       break;
     case "negate":
-      outputAnswer.textContent = (parseToNumber(outputAnswer) * -1).toString();
+      const negatedOutput = (parseToNumber(outputAnswer) * -1);
+      outputAnswer.textContent = negatedOutput.toString();
+      value = negatedOutput;
       break;
     case "percent":
       let result = calculatePercent(parseToNumber(outputAnswer));
       if (result) {
         outputAnswer.textContent = result.toString();
+        value = result;
       }
       break;
     case "equals": //TO DO
@@ -152,10 +156,12 @@ const handleClickButton = (event: Event) => {
         const numericValue = getNumericValue(buttonClass);
         outputAnswer.textContent += numericValue.toString();
       }
+      actionTracker = "number";
     } else if (buttonType === "decimal") {
       if (checkOutputLength(outputAnswer)) {
         checkDecimal(outputAnswer);
-      }
+      } 
+      
     } else if (buttonType === "operator") {
       if (actionTracker === "operator") {
         operator = null;
@@ -172,10 +178,11 @@ const handleClickButton = (event: Event) => {
         value = parseToNumber(outputAnswer);
       }
       operator = getOperator(buttonClass);
+      actionTracker = "operator";
     } else if (buttonType === "action") {
       performAction(buttonClass);
     }
-    actionTracker = buttonType;
+    
   }
 };
 
