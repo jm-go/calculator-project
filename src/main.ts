@@ -18,6 +18,7 @@ if (!calculatorButton || !outputAnswer || !outputHistory) {
 
 // Add global variables
 let value: null | number = null;
+let tempEqualsValue: null | number = null;
 let operator: null | string = null;
 let actionTracker: null | undefined | string = null;
 
@@ -96,25 +97,33 @@ const performAction = (buttonClass: string) => {
     case "negate":
       const negatedOutput = parseToNumber(outputAnswer) * -1;
       outputAnswer.textContent = negatedOutput.toString();
-      value = negatedOutput;
+      // value = negatedOutput;
       break;
     case "percent":
       let result = calculatePercent(parseToNumber(outputAnswer));
       if (result) {
         outputAnswer.textContent = result.toString();
-        value = result;
+        // value = result;
       }
       break;
     case "equals calculator__button--equal":
       if (typeof operator === "string" && value !== null) {
         let currentTextContent = parseToNumber(outputAnswer);
+
+        if (actionTracker === "equals" && tempEqualsValue){
+          value = currentTextContent
+          currentTextContent = tempEqualsValue;
+          
+        }
+        
         let result = calculate(value, currentTextContent, operator);
         if (result !== null) {
           outputAnswer.textContent = result.toString();
-          outputHistory.textContent += `${value}${operator}${currentTextContent}`;
-          value = null;
-          operator = null;
-        } // TO DO - add functionality for scenario when user clicks equals a few times
+          outputHistory.textContent = `${value}${operator}${currentTextContent}`;
+          value = result;
+          actionTracker = "equals";
+          tempEqualsValue = currentTextContent;
+        } 
       }
       break;
     default:
@@ -139,12 +148,16 @@ const checkTextContent = (output: HTMLOutputElement): string => {
 
 // Check if decimal point already exists
 const checkDecimal = (output: HTMLOutputElement) => {
+  if (actionTracker === "operator"){
+    output.textContent = "";
+  }
   const text = checkTextContent(output);
   if (text.length === 0) {
     output.textContent += "0.";
   } else if (!text.includes(".")) {
     output.textContent += ".";
   }
+  actionTracker = "decimal";
 };
 
 // Add handler for numeric buttons and operators
@@ -157,11 +170,17 @@ const handleClickButton = (event: Event) => {
     const buttonClass = target.className;
     const buttonType = target.dataset.type;
 
-    // Only proceed if the output length check passes
+    
     if (buttonType === "number") {
       if (actionTracker === "operator") {
         outputAnswer.textContent = "";
+      } else if ( actionTracker === "equals"){
+        value = null; 
+        operator = null;
+        outputAnswer.textContent = "";
+        
       }
+      // Only proceed if the output length check passes
       if (checkOutputLength(outputAnswer)) {
         const numericValue = getNumericValue(buttonClass);
         outputAnswer.textContent += numericValue.toString();
@@ -172,7 +191,7 @@ const handleClickButton = (event: Event) => {
         checkDecimal(outputAnswer);
       }
     } else if (buttonType === "operator") {
-      if (actionTracker === "operator") {
+      if (actionTracker === "operator" || actionTracker === "equals") {
         operator = null;
       }
       if (operator) {

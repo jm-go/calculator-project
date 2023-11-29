@@ -39,14 +39,19 @@ main {
         justify-content: flex-end;
         align-self: flex-end;
         font-size: 0.9rem;
+        margin-right: 0.4rem;
         color: $color-text;
         opacity: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 100%;
     }
 
     &__answer {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 1rem;
+        margin-right: 0.4rem;
         font-size: 1.25rem;
         color: $color-text;
         font-weight: 600;
@@ -64,7 +69,7 @@ main {
         margin: 0.1rem;
         display: flex;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
 
         &:hover {
             background-color: $color-lily;
@@ -74,36 +79,36 @@ main {
             width: 6.5rem;
             height: 3rem;
             border-radius: 1rem;
-            background-color: $color-violet;
+            background-color: $color-raspberry;
         }
     }
 
     &__button-clear {
-        background-color: $color-violet;
+        background-color: $color-raspberry;
     }
 
     &__button-negate {
-        background-color: $color-lavender;
+        background-color: $color-cornflower;
     }
 
     &__button-percent {
-        background-color: $color-lavender;
+        background-color: $color-cornflower;
     }
 
     &__button-divide {
-        background-color: $color-lavender;
+        background-color: $color-cornflower;
     }
 
     &__button-multiply {
-        background-color: $color-lavender;
+        background-color: $color-cornflower;
     }
 
     &__button-minus {
-        background-color: $color-lavender;
+        background-color: $color-cornflower;
     }
 
     &__button-plus {
-        background-color: $color-lavender;
+        background-color: $color-cornflower;
     }
 
     &__img {
