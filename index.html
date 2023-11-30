@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script type="module" crossorigin src="./assets/index-XYZMiKtD.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-8nd4N8og.css">
+  </head>
+  <body>
+    <section class="header">
+      <img
+        class="header__cat"
+        src="./assets/cat_icon-JcaTroxe.png"
+        alt="Cat with calculator"
+      />
+      <header class="header__text">
+        Let's <span class="header__text header__text--cat">Cat</span>culate!
+      </header>
+    </section>
+    <main>
+      <section class="calculator">
+        <output class="calculator__history"></output>
+        <output class="calculator__answer"></output>
+        <button
+          type="button"
+          class="calculator__button calculator__button-clear"
+          data-type="action"
+        >
+          C
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-negate"
+          data-type="action"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-diff'%3e%3cpath%20d='M12%203v14'/%3e%3cpath%20d='M5%2010h14'/%3e%3cpath%20d='M5%2021h14'/%3e%3c/svg%3e"
+            alt="Plus-minus"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-percent"
+          data-type="action"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-percent'%3e%3cline%20x1='19'%20x2='5'%20y1='5'%20y2='19'/%3e%3ccircle%20cx='6.5'%20cy='6.5'%20r='2.5'/%3e%3ccircle%20cx='17.5'%20cy='17.5'%20r='2.5'/%3e%3c/svg%3e"
+            alt="Percentage"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-divide"
+          data-type="operator"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-divide'%3e%3ccircle%20cx='12'%20cy='6'%20r='1'/%3e%3cline%20x1='5'%20x2='19'%20y1='12'%20y2='12'/%3e%3ccircle%20cx='12'%20cy='18'%20r='1'/%3e%3c/svg%3e"
+            alt="Division"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-seven"
+          data-type="number"
+        >
+          7
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-eight"
+          data-type="number"
+        >
+          8
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-nine"
+          data-type="number"
+        >
+          9
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-multiply"
+          data-type="operator"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-x'%3e%3cpath%20d='M18%206%206%2018'/%3e%3cpath%20d='m6%206%2012%2012'/%3e%3c/svg%3e"
+            alt="Multiplication"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-four"
+          data-type="number"
+        >
+          4
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-five"
+          data-type="number"
+        >
+          5
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-six"
+          data-type="number"
+        >
+          6
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-minus"
+          data-type="operator"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-minus'%3e%3cpath%20d='M5%2012h14'/%3e%3c/svg%3e"
+            alt="Subtraction"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-one"
+          data-type="number"
+        >
+          1
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-two"
+          data-type="number"
+        >
+          2
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-three"
+          data-type="number"
+        >
+          3
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-plus"
+          data-type="operator"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-plus'%3e%3cpath%20d='M5%2012h14'/%3e%3cpath%20d='M12%205v14'/%3e%3c/svg%3e"
+            alt="Addition"
+          />
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-zero"
+          data-type="number"
+        >
+          0
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-dec"
+          data-type="decimal"
+        >
+          .
+        </button>
+        <button
+          type="button"
+          class="calculator__button calculator__button-equals calculator__button--equal"
+          data-type="action"
+        >
+          <img
+            class="calculator__img"
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='lucide%20lucide-equal'%3e%3cline%20x1='5'%20x2='19'%20y1='9'%20y2='9'/%3e%3cline%20x1='5'%20x2='19'%20y1='15'%20y2='15'/%3e%3c/svg%3e"
+            alt="Equals"
+          />
+        </button>
+      </section>
+    </main>
+  </body>
+</html>
