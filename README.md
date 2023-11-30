@@ -3,7 +3,7 @@
 ## **Introduction**
 **Welcome to my Web Calculator App**. This is a _nology course project designed to showcase a simple yet functional calculator built using modern web technologies. The calculator features a clean, user-friendly interface and is capable of performing basic arithmetic operations. The project is also live, deployed on GitHub Pages.
 
-[View Live Portfolio](https://jm-go.github.io/calculator-project/)
+[View Live Calculator](https://jm-go.github.io/calculator-project/)
 
 ## **Features**
 - **Basic Arithmetic Operations**: Perform addition (+), subtraction (-), multiplication (x), division (÷), negate (±), and calculate percentages (%).
@@ -27,7 +27,7 @@
 3. **Run `npm install`** to install dependencies.
 4. **Start the development server** by running `npm run dev`.
 
-Alternatively, view the live version deployed on GitHub Pages at [View Live Portfolio](https://jm-go.github.io/calculator-project/).
+Alternatively, view the live version deployed on GitHub Pages at [View Live Calculator](https://jm-go.github.io/calculator-project/).
 
 ## **Usage**
 Open the web application in your browser. You will be presented with a simple calculator's interface. Here's how to use it:
