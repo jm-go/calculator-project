@@ -10,24 +10,28 @@
     <section class="header">
       <img
         class="header__cat"
-        src="./src/assets/calculator.png"
+        src="./src/assets/cat_icon.png"
         alt="Cat with calculator"
       />
-      <header class="header__text">Let's Calculate!</header>
+      <header class="header__text">
+        Let's <span class="header__text header__text--cat">Cat</span>culate!
+      </header>
     </section>
     <main>
       <section class="calculator">
-        <output class="calculator__history">sample</output>
-        <output class="calculator__answer">sample</output>
+        <output class="calculator__history"></output>
+        <output class="calculator__answer"></output>
         <button
           type="button"
           class="calculator__button calculator__button-clear"
+          data-type="action"
         >
           C
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-negate"
+          data-type="action"
         >
           <img
             class="calculator__img"
@@ -38,6 +42,7 @@
         <button
           type="button"
           class="calculator__button calculator__button-percent"
+          data-type="action"
         >
           <img
             class="calculator__img"
@@ -48,6 +53,7 @@
         <button
           type="button"
           class="calculator__button calculator__button-divide"
+          data-type="operator"
         >
           <img
             class="calculator__img"
@@ -58,24 +64,28 @@
         <button
           type="button"
           class="calculator__button calculator__button-seven"
+          data-type="number"
         >
           7
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-eight"
+          data-type="number"
         >
           8
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-nine"
+          data-type="number"
         >
           9
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-multiply"
+          data-type="operator"
         >
           <img
             class="calculator__img"
@@ -86,21 +96,28 @@
         <button
           type="button"
           class="calculator__button calculator__button-four"
+          data-type="number"
         >
           4
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-five"
+          data-type="number"
         >
           5
         </button>
-        <button type="button" class="calculator__button calculator__button-six">
+        <button
+          type="button"
+          class="calculator__button calculator__button-six"
+          data-type="number"
+        >
           6
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-minus"
+          data-type="operator"
         >
           <img
             class="calculator__img"
@@ -108,21 +125,31 @@
             alt="Subtraction"
           />
         </button>
-        <button type="button" class="calculator__button calculator__button-one">
+        <button
+          type="button"
+          class="calculator__button calculator__button-one"
+          data-type="number"
+        >
           1
         </button>
-        <button type="button" class="calculator__button calculator__button-two">
+        <button
+          type="button"
+          class="calculator__button calculator__button-two"
+          data-type="number"
+        >
           2
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-three"
+          data-type="number"
         >
           3
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-plus"
+          data-type="operator"
         >
           <img
             class="calculator__img"
@@ -133,15 +160,21 @@
         <button
           type="button"
           class="calculator__button calculator__button-zero"
+          data-type="number"
         >
           0
         </button>
-        <button type="button" class="calculator__button calculator__button-dec">
+        <button
+          type="button"
+          class="calculator__button calculator__button-dec"
+          data-type="decimal"
+        >
           .
         </button>
         <button
           type="button"
           class="calculator__button calculator__button-equals calculator__button--equal"
+          data-type="action"
         >
           <img
             class="calculator__img"
