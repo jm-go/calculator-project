@@ -1,12 +1,17 @@
 # **Web Calculator App**
 
 ## **Introduction**
-**Welcome to my Web Calculator App**. This is a _nology course project designed to showcase a simple yet functional calculator built using modern web technologies. The calculator features a clean, user-friendly interface and is capable of performing basic arithmetic operations.
+**Welcome to my Web Calculator App**. This is a _nology course project designed to showcase a simple yet functional calculator built using modern web technologies. The calculator features a clean, user-friendly interface and is capable of performing basic arithmetic operations. The project is also live, deployed on GitHub Pages.
+
+[View Live Portfolio](https://jm-go.github.io/calculator-project/)
 
 ## **Features**
 - **Basic Arithmetic Operations**: Perform addition (+), subtraction (-), multiplication (x), division (÷), negate (±), and calculate percentages (%).
 - **Clear and Equal Functions**: For ease of calculation.
 - **Responsive Design**: Optimal viewing on various devices.
+- **History Tracker**: Keeps a brief history of your most recent calculations for easy reference.
+- **Intelligent Operator Update**: The calculator updates the operation if a different operator is selected immediately after the first, correcting potential input mistakes.
+- **Repeated Equal Press Functionality**: Mirroring the behavior of an iPhone calculator, pressing the equal button (=) repeatedly continues the last operation using the most recent value, allowing for quick repetitive calculations.
 
 ## **Technologies Used**
 - **HTML5**: With semantic tags for structure.
@@ -21,6 +26,8 @@
 2. **Navigate** to the project directory.
 3. **Run `npm install`** to install dependencies.
 4. **Start the development server** by running `npm run dev`.
+
+Alternatively, view the live version deployed on GitHub Pages at [View Live Portfolio](https://jm-go.github.io/calculator-project/).
 
 ## **Usage**
 Open the web application in your browser. You will be presented with a simple calculator's interface. Here's how to use it:
